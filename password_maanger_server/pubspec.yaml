@@ -1,0 +1,11 @@
+name: password_maanger_server
+description: Starting point for a Serverpod server.
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+dependencies:
+  serverpod: 2.9.1
+dev_dependencies:
+  lints: '>=3.0.0 <7.0.0'
+  serverpod_test: 2.9.1
+  test: '^1.24.2'
+
