@@ -36,7 +36,7 @@ jobs:
           aws-region: us-west-2
 
       - name: Create passwords file
-        working-directory: password_maanger_server
+        working-directory: password_manager_server
         shell: bash
         env:
           SERVERPOD_PASSWORDS: ${{ secrets.SERVERPOD_PASSWORDS }}
@@ -46,17 +46,17 @@ jobs:
           ls config/
 
       - name: Get Dart packages
-        working-directory: password_maanger_server
+        working-directory: password_manager_server
         run: dart pub get
 
       - name: Compile server
-        working-directory: password_maanger_server
+        working-directory: password_manager_server
         run: dart compile kernel bin/main.dart
 
       - name: Create CodeDeploy Deployment
         id: deploy
         env:
-          PROJECT_NAME: password_maanger
+          PROJECT_NAME: password_manager
           AWS_NAME: password-maanger
           DEPLOYMENT_BUCKET: password-maanger-deployment-1059367
           TARGET: ${{ github.event.inputs.target }}
